@@ -1,5 +1,6 @@
 package com.weatherapp.model;
 
+/*
 public class Condition {
     private String text;
     private String icon;
@@ -34,4 +35,5 @@ public class Condition {
         this.code = code;
     }
 }
+*/
 

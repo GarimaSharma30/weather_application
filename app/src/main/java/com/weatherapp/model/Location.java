@@ -1,3 +1,4 @@
+/*
 package com.weatherapp.model;
 
 public class Location {
@@ -79,3 +80,4 @@ public class Location {
         this.localtime = localtime;
     }
 }
+*/

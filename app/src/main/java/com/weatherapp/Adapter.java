@@ -7,14 +7,17 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.weatherapp.databinding.ItemWeatherForecastBinding;
+import com.weatherapp.model.WeatherModel;
+
+import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.BindingHolder> {
 
-//    private List<Article> mArticles;
+    private ArrayList<WeatherModel.Forecast.Forecastday> forecastdayArrayList;
     private Context mContext;
 
-    public Adapter( Context mContext) {
-//        this.mArticles = mArticles;
+    public Adapter(Context mContext, ArrayList<WeatherModel.Forecast.Forecastday> forecastdayArrayList) {
+        this.forecastdayArrayList = forecastdayArrayList;
         this.mContext = mContext;
     }
 
@@ -30,12 +33,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.BindingHolder> {
     @Override
     public void onBindViewHolder(BindingHolder holder, int position) {
         ItemWeatherForecastBinding binding = holder.binding;
-//        binding.setAvm(new ArticleViewModel(mArticles.get(position), mContext));
+        binding.tvWeekday.setText(forecastdayArrayList.get(position).getDate());
+        binding.tvWeekdayTemp.setText(forecastdayArrayList.get(position).getDay().getAvgtempC().toString());
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return forecastdayArrayList.size();
     }
 
     public static class BindingHolder extends RecyclerView.ViewHolder {
