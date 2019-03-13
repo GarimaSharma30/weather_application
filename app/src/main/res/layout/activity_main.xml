@@ -6,26 +6,26 @@
     <data>
 
         <variable
-            name="currentTemperature"
-            type="String" />
-
+            name="viewmodel"
+            type="com.weatherapp.viewmodel.HomeViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/bgClMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBg">
+        android:background="@color/colorBgMain">
 
         <TextView
             android:id="@+id/tvTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fifty_six"
-            android:fontFamily="@fonts/roboto.black.ttf"
-            android:text="@{currentTemperature}"
+            android:text="@{viewmodel.currentTemp.get()}"
             android:textColor="@color/colorTemp"
             android:textSize="@dimen/ninety_six"
             android:visibility="gone"
+            app:font="@{`roboto_black`}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,10 +34,10 @@
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@fonts/roboto.thin.ttf"
             android:text="@string/bangalore"
             android:textSize="@dimen/thirty_six"
             android:visibility="gone"
+            app:font="@{`roboto_thin`}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTemp" />
@@ -77,5 +77,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvErrorMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/something_went_wrong"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/fifty_six"
+            android:visibility="gone"
+            app:font="@{`roboto_thin`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fourty_four"
+            android:background="@drawable/rounded_corner_button_bg"
+            android:text="@string/retry"
+            android:onClick="@{()-> viewmodel.retry()}"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvErrorMsg" />
+
+        <android.support.constraint.Group
+            android:id="@+id/groupError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tvErrorMsg,btnRetry" />
     </android.support.constraint.ConstraintLayout>
 </layout>

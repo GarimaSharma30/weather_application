@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="bangalore">Bangalore</string>
+    <string name="something_went_wrong">Something went wrong at our end!</string>
+    <string name="retry">Retry</string>
+    <string name="check_your_internet">Please check your internet connection!</string>
 </resources>

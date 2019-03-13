@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorTemp">#2A2A2A</color>
     <color name="colorCity">#556799</color>
-    <color name="colorBg">#F5F6F7</color>
-    <color name="weekdayColor">#2A2A2A</color>
+    <color name="colorBgMain">#F5F6F7</color>
+    <color name="colorBgRed">#E85959</color>
+    <color name="colorButtonBg">#4A4A4A</color>
 </resources>
